@@ -22,9 +22,9 @@ title: Snippets and Bits
 email: martz91@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Snippets of code or configurations that i find usefull and want to remember and share.
-domain: github.com/Martz91/SnippetsAndBits
-baseurl: "/SnippetsAndBits/site/" # the subpath of your site, e.g. /blog
-url: "https://github.com/Martz91/SnippetsAndBits" # the base hostname & protocol for your site, e.g. http://example.com
+domain: martz91.github.io
+baseurl: "/SnippetsAndBits/" # the subpath of your site, e.g. /blog
+url: "https://martz91.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Martz91
 github_username:  Martz91
 
