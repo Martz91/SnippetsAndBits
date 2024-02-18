@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://martz91.github.io/SnippetsAndBits/feed.xml" rel="self" type="application/atom+xml" /><link href="https://martz91.github.io/SnippetsAndBits/" rel="alternate" type="text/html" /><updated>2024-02-18T19:12:16+01:00</updated><id>https://martz91.github.io/SnippetsAndBits/feed.xml</id><title type="html">Snippets and Bits</title><subtitle>Snippets of code or configurations that i find usefull and want to remember and share.</subtitle><entry><title type="html">Power Automate and SharePoint Online - How to create a Site Page from a Template and update it’s content with Power Automate only</title><link href="https://martz91.github.io/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage.html" rel="alternate" type="text/html" title="Power Automate and SharePoint Online - How to create a Site Page from a Template and update it’s content with Power Automate only" /><published>2024-02-17T23:53:00+01:00</published><updated>2024-02-17T23:53:00+01:00</updated><id>https://martz91.github.io/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage</id><content type="html" xml:base="https://martz91.github.io/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage.html">&lt;h1 id=&quot;how-to-create-a-site-page-from-a-template-and-update-its-content-with-power-automate-only&quot;&gt;How to create a Site Page from a Template and update it’s content with Power Automate only&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/SnippetsAndBits/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/SnippetsAndBits/" rel="alternate" type="text/html" /><updated>2024-02-18T19:28:17+01:00</updated><id>http://0.0.0.0:4000/SnippetsAndBits/feed.xml</id><title type="html">Snippets and Bits</title><subtitle>Snippets of code or configurations that i find usefull and want to remember and share.</subtitle><entry><title type="html">Power Automate and SharePoint Online - How to create a Site Page from a Template and update it’s content with Power Automate only</title><link href="http://0.0.0.0:4000/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage.html" rel="alternate" type="text/html" title="Power Automate and SharePoint Online - How to create a Site Page from a Template and update it’s content with Power Automate only" /><published>2024-02-17T23:53:00+01:00</published><updated>2024-02-17T23:53:00+01:00</updated><id>http://0.0.0.0:4000/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage</id><content type="html" xml:base="http://0.0.0.0:4000/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage.html">&lt;h1 id=&quot;how-to-create-a-site-page-from-a-template-and-update-its-content-with-power-automate-only&quot;&gt;How to create a Site Page from a Template and update it’s content with Power Automate only&lt;/h1&gt;
 
 &lt;p&gt;Have you ever thought it would be nice if you could create News Posts (or any other Site Page) in SharePoint online using Power Automate?&lt;/p&gt;
 
@@ -24,7 +24,7 @@
 &lt;p&gt;I built my Page layout and put in the static elements like Banner image and static text.
 Then I used Placeholders between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;&amp;gt;&lt;/code&gt; to replace them later with the real data.
 For the image I uploaded a Sample image to the document library which later will contain all the pictures for these Posts and added it to the Page by link. This way, I only need to replace the filename of the Image within the link. (The path of the library remains unchanged)
-&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-7.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-7.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I saved my page as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;template-welcome.aspx&lt;/code&gt;.&lt;/p&gt;
 
@@ -47,7 +47,7 @@ accept: application/json;odata=verbose
 Body: empty
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As you see in the Image above, I used variables to store the name of the template and Compose, to dynamically generate the filename. Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;concat&lt;/code&gt; to create a string out of the pictures Id in the document library and the Employees Name I’m confident to avoid naming conflicts.&lt;/p&gt;
 
@@ -68,9 +68,9 @@ accept: application/json;odata=verbose
 Body: empty
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-1.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-1.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-2.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-2.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;modifying-the-page-content&quot;&gt;Modifying the Page content&lt;/h3&gt;
 &lt;p&gt;Having the content of our Page, we now need to replace the placeholders with actual values.&lt;/p&gt;
@@ -87,7 +87,7 @@ Here we find the Text I wrote in the Template as well as the Picture and it’s 
 
 &lt;p&gt;First, We initialize a variable with the content of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CanvasContent1&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-3.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-3.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Next we can use the replace expression to replace the placeholders with the actual values.
 In this screenshot you see how I replace the string “Sample.png” with the FilenameWithExtension Attribute I got from the trigger. (It contains the Filename + Extension of the file that was selected when the Flow was triggered)
@@ -97,11 +97,11 @@ PS: What we can’t do is self-reference a Variable. So if you plan on using Set
 
 &lt;h3 id=&quot;saving-the-changes&quot;&gt;Saving the changes&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-4.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-4.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this screenshot you see how everything got put together to create the body for the last request.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-5.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-5.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;If you’re asking how I chose those attributes of all that where returned by the CheckOutPage Method the answer is surprisingly simple.&lt;/p&gt;
 
@@ -135,7 +135,7 @@ Body: {
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-6.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-6.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this particular case i wanted the user to be able to look at the Post and maybe add some custom Text before publishing it. 
 If you want to publish the page directly from your Flow you can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;publish&lt;/code&gt; Method of the API:&lt;/p&gt;

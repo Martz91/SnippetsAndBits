@@ -27,14 +27,13 @@ I'm not going to talk much about the Document Library itself, since it is only o
 
 ## Implementation 
 
-
 ### The template
 First thing we need is a Template Page. (This is not actually a template, it's just the Page we copy every time our Flow runs)
 
 I built my Page layout and put in the static elements like Banner image and static text.
 Then I used Placeholders between `<>` to replace them later with the real data.
 For the image I uploaded a Sample image to the document library which later will contain all the pictures for these Posts and added it to the Page by link. This way, I only need to replace the filename of the Image within the link. (The path of the library remains unchanged)
-![alt text](/assets/2024-02-17-PA_create_and_modify_sitepage/image-7.png)
+![alt text](/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-7.png)
 
 I saved my page as `template-welcome.aspx`.
 
@@ -58,7 +57,7 @@ accept: application/json;odata=verbose
 Body: empty
 ```
 
-![alt text](/assets/2024-02-17-PA_create_and_modify_sitepage/image.png)
+![alt text](/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image.png)
 
 
 As you see in the Image above, I used variables to store the name of the template and Compose, to dynamically generate the filename. Using `concat` to create a string out of the pictures Id in the document library and the Employees Name I'm confident to avoid naming conflicts.
@@ -84,9 +83,9 @@ accept: application/json;odata=verbose
 Body: empty
 ```
 
-![alt text](/assets/2024-02-17-PA_create_and_modify_sitepage/image-1.png)
+![alt text](/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-1.png)
 
-![alt text](/assets/2024-02-17-PA_create_and_modify_sitepage/image-2.png)
+![alt text](/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-2.png)
 
 
 ### Modifying the Page content
@@ -109,7 +108,7 @@ Here we find the Text I wrote in the Template as well as the Picture and it's sr
 
 First, We initialize a variable with the content of `CanvasContent1`
 
-![alt text](/assets/2024-02-17-PA_create_and_modify_sitepage/image-3.png)
+![alt text](/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-3.png)
 
 Next we can use the replace expression to replace the placeholders with the actual values.
 In this screenshot you see how I replace the string "Sample.png" with the FilenameWithExtension Attribute I got from the trigger. (It contains the Filename + Extension of the file that was selected when the Flow was triggered)
@@ -119,11 +118,11 @@ PS: What we can't do is self-reference a Variable. So if you plan on using Set V
 
 ### Saving the changes
 
-![alt text](/assets/2024-02-17-PA_create_and_modify_sitepage/image-4.png)
+![alt text](/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-4.png)
 
 In this screenshot you see how everything got put together to create the body for the last request.
 
-![alt text](/assets/2024-02-17-PA_create_and_modify_sitepage/image-5.png)
+![alt text](/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-5.png)
 
 If you're asking how I chose those attributes of all that where returned by the CheckOutPage Method the answer is surprisingly simple.
 
@@ -159,7 +158,7 @@ Body: {
 }
 ```
 
-![alt text](/assets/2024-02-17-PA_create_and_modify_sitepage/image-6.png)
+![alt text](/SnippetsAndBits/assets/images/2024-02-17-PA_create_and_modify_sitepage/image-6.png)
 
 In this particular case i wanted the user to be able to look at the Post and maybe add some custom Text before publishing it. 
 If you want to publish the page directly from your Flow you can use the `publish` Method of the API:
