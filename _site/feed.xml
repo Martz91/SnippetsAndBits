@@ -1,17 +1,145 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/SnippetsAndBits/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/SnippetsAndBits/" rel="alternate" type="text/html" /><updated>2024-02-04T19:51:11+01:00</updated><id>http://0.0.0.0:4000/SnippetsAndBits/feed.xml</id><title type="html">Snippets and Bits</title><subtitle>Snippets of code or configurations that i find usefull and want to remember and share.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://0.0.0.0:4000/SnippetsAndBits/jekyll/update/2024/02/04/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2024-02-04T19:22:06+01:00</published><updated>2024-02-04T19:22:06+01:00</updated><id>http://0.0.0.0:4000/SnippetsAndBits/jekyll/update/2024/02/04/welcome-to-jekyll</id><content type="html" xml:base="http://0.0.0.0:4000/SnippetsAndBits/jekyll/update/2024/02/04/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://martz91.github.io/SnippetsAndBits/feed.xml" rel="self" type="application/atom+xml" /><link href="https://martz91.github.io/SnippetsAndBits/" rel="alternate" type="text/html" /><updated>2024-02-18T19:12:16+01:00</updated><id>https://martz91.github.io/SnippetsAndBits/feed.xml</id><title type="html">Snippets and Bits</title><subtitle>Snippets of code or configurations that i find usefull and want to remember and share.</subtitle><entry><title type="html">Power Automate and SharePoint Online - How to create a Site Page from a Template and update it’s content with Power Automate only</title><link href="https://martz91.github.io/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage.html" rel="alternate" type="text/html" title="Power Automate and SharePoint Online - How to create a Site Page from a Template and update it’s content with Power Automate only" /><published>2024-02-17T23:53:00+01:00</published><updated>2024-02-17T23:53:00+01:00</updated><id>https://martz91.github.io/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage</id><content type="html" xml:base="https://martz91.github.io/SnippetsAndBits/spo/powerautomate/hacky/2024/02/17/PA_create_and_modify_sitepage.html">&lt;h1 id=&quot;how-to-create-a-site-page-from-a-template-and-update-its-content-with-power-automate-only&quot;&gt;How to create a Site Page from a Template and update it’s content with Power Automate only&lt;/h1&gt;
 
-&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+&lt;p&gt;Have you ever thought it would be nice if you could create News Posts (or any other Site Page) in SharePoint online using Power Automate?&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Well .. I didn’t. But turns out I needed to, and it was a fun little project.&lt;/p&gt;
 
-&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;So here we go:&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;h2 id=&quot;outline-and-setup&quot;&gt;Outline and Setup&lt;/h2&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;A Document library containing pictures of all employees is used to trigger a Power Automate Flow which creates a News Post welcoming new Employees in the company and presenting them to their colleagues.&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;The pictures have Metadata like Employee Name, Department etc.&lt;/p&gt;
+
+&lt;p&gt;The Layout of the News Post is defined in a Template containing Placeholders where the Employees Name, Department and Picture should go.&lt;/p&gt;
+
+&lt;p&gt;I’m not going to talk much about the Document Library itself, since it is only one of many possible sources in such a scenario. The main focus is on the Flow.&lt;/p&gt;
+
+&lt;h2 id=&quot;implementation&quot;&gt;Implementation&lt;/h2&gt;
+
+&lt;h3 id=&quot;the-template&quot;&gt;The template&lt;/h3&gt;
+&lt;p&gt;First thing we need is a Template Page. (This is not actually a template, it’s just the Page we copy every time our Flow runs)&lt;/p&gt;
+
+&lt;p&gt;I built my Page layout and put in the static elements like Banner image and static text.
+Then I used Placeholders between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;&amp;gt;&lt;/code&gt; to replace them later with the real data.
+For the image I uploaded a Sample image to the document library which later will contain all the pictures for these Posts and added it to the Page by link. This way, I only need to replace the filename of the Image within the link. (The path of the library remains unchanged)
+&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-7.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I saved my page as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;template-welcome.aspx&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;copying-the-template&quot;&gt;Copying the template&lt;/h3&gt;
+&lt;p&gt;Now for the somewhat tricky part.&lt;/p&gt;
+
+&lt;p&gt;Whenever the flow is run, we need to get the content of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;template-welcome.aspx&lt;/code&gt;, replace the placeholders with real data and store this new content in a new aspx file.&lt;/p&gt;
+
+&lt;p&gt;The first step in our flow will be to create a copy of the template with a decent name.
+This can be done using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Send an HTTP request to SharePoint&lt;/code&gt; and the following parameters:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST
+
+_api/web/getfilebyserverrelativeurl(&apos;/sites/&amp;lt;your site&amp;gt;/SitePages/&amp;lt;Filename of the template&amp;gt;&apos;)/copyto(strnewurl=&apos;/sites/&amp;lt;your site&amp;gt;/SitePages/&amp;lt;Filename of the new page&amp;gt;.aspx&apos;,boverwrite=false)
+
+Headers:
+content-type: application/json;odata=verbose
+accept: application/json;odata=verbose
+
+Body: empty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you see in the Image above, I used variables to store the name of the template and Compose, to dynamically generate the filename. Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;concat&lt;/code&gt; to create a string out of the pictures Id in the document library and the Employees Name I’m confident to avoid naming conflicts.&lt;/p&gt;
+
+&lt;h3 id=&quot;getting-the-page-content&quot;&gt;Getting the page content&lt;/h3&gt;
+&lt;p&gt;Now, to get the content of the existing file, we can use a trick I learned from a post on &lt;a href=&quot;https://powerusers.microsoft.com/t5/Building-Flows/Change-the-content-of-a-SharePoint-page/td-p/1558883&quot;&gt;powerusers.microsoft.com&lt;/a&gt; by &lt;a href=&quot;https://powerusers.microsoft.com/t5/user/viewprofilepage/user-id/636648&quot;&gt;SilannaIT-Dale&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The SharePoint API exposes the Method &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CheckOutPage&lt;/code&gt; which … checks out the page … but more importantly: Returns the pages content after doing so.&lt;/p&gt;
+
+&lt;p&gt;With the following HTTP request to the SharePoint API we can get the content of the newly created copy of our template.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST 
+_api/sitepages/pages(&amp;lt;ID of the Page&amp;gt;)/CheckOutPage
+
+Headers:
+content-type: application/json;odata=verbose
+accept: application/json;odata=verbose
+
+Body: empty
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-1.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-2.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;modifying-the-page-content&quot;&gt;Modifying the Page content&lt;/h3&gt;
+&lt;p&gt;Having the content of our Page, we now need to replace the placeholders with actual values.&lt;/p&gt;
+
+&lt;p&gt;[!NOTE]
+My first attempt to use Parse JSON on the body returned by the CheckOutPage Method was a total bust because i ran into some very strange behavior.
+While the output of the Parse JSON step was perfectly fine, the dynamic content it produced was always empty. After manually modifying the Schema, validating the schema and even using PowerShell to parse the json in the hope of finding some oversight in the schema i finally gave up.
+That’s why in the following Screenshots you’ll find all references to the content of the page as expressions.&lt;/p&gt;
+
+&lt;p&gt;While the CheckOutPage Method returned a lot in the body, we actually don’t need all of it.&lt;/p&gt;
+
+&lt;p&gt;What we want to change is the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CanvasContent1&lt;/code&gt; property. It contains the actual content of the Page.
+Here we find the Text I wrote in the Template as well as the Picture and it’s src attribute where we can replace the filename to point to a different image.&lt;/p&gt;
+
+&lt;p&gt;First, We initialize a variable with the content of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CanvasContent1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-3.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next we can use the replace expression to replace the placeholders with the actual values.
+In this screenshot you see how I replace the string “Sample.png” with the FilenameWithExtension Attribute I got from the trigger. (It contains the Filename + Extension of the file that was selected when the Flow was triggered)
+I actually used multiple compose steps in row and only replaced one Placeholder in every step.
+It would work to nest the replace statements but I find it easier to read this way.
+PS: What we can’t do is self-reference a Variable. So if you plan on using Set Variable instead of compose you’re going to be disappointed.&lt;/p&gt;
+
+&lt;h3 id=&quot;saving-the-changes&quot;&gt;Saving the changes&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-4.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this screenshot you see how everything got put together to create the body for the last request.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-5.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you’re asking how I chose those attributes of all that where returned by the CheckOutPage Method the answer is surprisingly simple.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;These are the values I need/want&lt;/li&gt;
+  &lt;li&gt;Using the developer tools in the browser while saving a Page as draft, I could look at how the SharePoint UI made the requests containing exactly those attributes. (except for the description, which I wanted to have in there)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The last step is another HTTP request to the API calling the Method &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;savepageasdraft&lt;/code&gt; and delivering the new page content as body:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST
+_api/sitepages/pages(&amp;lt;ID of the Page&amp;gt;)/savepageasdraft
+
+Headers:
+content-type: application/json;odata=verbose
+accept: application/json;odata=verbose
+
+Body: {
+  &quot;__metadata&quot;: {
+    &quot;type&quot;: &quot;SP.Publishing.SitePage&quot;
+  },
+  &quot;LayoutWebpartsContent&quot;: &quot;@{variables(&apos;LayoutWebpartsContent&apos;)}&quot;,
+  &quot;CanvasContent1&quot;: &quot;@{outputs(&apos;Compose_-_Replace_Image_URL_in_Canvas_Content&apos;)}&quot;,
+  &quot;AuthorByline&quot;: [
+    &quot;i:0#.f|membership|username@contoso.com&quot;
+  ],
+  &quot;TopicHeader&quot;: null,
+  &quot;BannerImageUrl&quot;: &quot;@{variables(&apos;BannerImageUrl&apos;)}&quot;,
+  &quot;Description&quot;: &quot;My new description&quot;,
+  &quot;Title&quot;: &quot;@{outputs(&apos;Compose_-_Replace_Department_Name_in_Title&apos;)}&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2024-02-17-PA_create_and_modify_sitepage/image-6.png&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this particular case i wanted the user to be able to look at the Post and maybe add some custom Text before publishing it. 
+If you want to publish the page directly from your Flow you can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;publish&lt;/code&gt; Method of the API:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST 
+_api/sitepages/pages(&amp;lt;ID of the Page&amp;gt;)/publish
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="SPO" /><category term="PowerAutomate" /><category term="Hacky" /><summary type="html">How to create a Site Page from a Template and update it’s content with Power Automate only Have you ever thought it would be nice if you could create News Posts (or any other Site Page) in SharePoint online using Power Automate? Well .. I didn’t. But turns out I needed to, and it was a fun little project. So here we go: Outline and Setup A Document library containing pictures of all employees is used to trigger a Power Automate Flow which creates a News Post welcoming new Employees in the company and presenting them to their colleagues. The pictures have Metadata like Employee Name, Department etc. The Layout of the News Post is defined in a Template containing Placeholders where the Employees Name, Department and Picture should go. I’m not going to talk much about the Document Library itself, since it is only one of many possible sources in such a scenario. The main focus is on the Flow. Implementation The template First thing we need is a Template Page. (This is not actually a template, it’s just the Page we copy every time our Flow runs) I built my Page layout and put in the static elements like Banner image and static text. Then I used Placeholders between &amp;lt;&amp;gt; to replace them later with the real data. For the image I uploaded a Sample image to the document library which later will contain all the pictures for these Posts and added it to the Page by link. This way, I only need to replace the filename of the Image within the link. (The path of the library remains unchanged) I saved my page as template-welcome.aspx. Copying the template Now for the somewhat tricky part. Whenever the flow is run, we need to get the content of template-welcome.aspx, replace the placeholders with real data and store this new content in a new aspx file. The first step in our flow will be to create a copy of the template with a decent name. This can be done using Send an HTTP request to SharePoint and the following parameters: POST _api/web/getfilebyserverrelativeurl(&apos;/sites/&amp;lt;your site&amp;gt;/SitePages/&amp;lt;Filename of the template&amp;gt;&apos;)/copyto(strnewurl=&apos;/sites/&amp;lt;your site&amp;gt;/SitePages/&amp;lt;Filename of the new page&amp;gt;.aspx&apos;,boverwrite=false) Headers: content-type: application/json;odata=verbose accept: application/json;odata=verbose Body: empty As you see in the Image above, I used variables to store the name of the template and Compose, to dynamically generate the filename. Using concat to create a string out of the pictures Id in the document library and the Employees Name I’m confident to avoid naming conflicts. Getting the page content Now, to get the content of the existing file, we can use a trick I learned from a post on powerusers.microsoft.com by SilannaIT-Dale The SharePoint API exposes the Method CheckOutPage which … checks out the page … but more importantly: Returns the pages content after doing so. With the following HTTP request to the SharePoint API we can get the content of the newly created copy of our template. POST _api/sitepages/pages(&amp;lt;ID of the Page&amp;gt;)/CheckOutPage Headers: content-type: application/json;odata=verbose accept: application/json;odata=verbose Body: empty Modifying the Page content Having the content of our Page, we now need to replace the placeholders with actual values. [!NOTE] My first attempt to use Parse JSON on the body returned by the CheckOutPage Method was a total bust because i ran into some very strange behavior. While the output of the Parse JSON step was perfectly fine, the dynamic content it produced was always empty. After manually modifying the Schema, validating the schema and even using PowerShell to parse the json in the hope of finding some oversight in the schema i finally gave up. That’s why in the following Screenshots you’ll find all references to the content of the page as expressions. While the CheckOutPage Method returned a lot in the body, we actually don’t need all of it. What we want to change is the CanvasContent1 property. It contains the actual content of the Page. Here we find the Text I wrote in the Template as well as the Picture and it’s src attribute where we can replace the filename to point to a different image. First, We initialize a variable with the content of CanvasContent1 Next we can use the replace expression to replace the placeholders with the actual values. In this screenshot you see how I replace the string “Sample.png” with the FilenameWithExtension Attribute I got from the trigger. (It contains the Filename + Extension of the file that was selected when the Flow was triggered) I actually used multiple compose steps in row and only replaced one Placeholder in every step. It would work to nest the replace statements but I find it easier to read this way. PS: What we can’t do is self-reference a Variable. So if you plan on using Set Variable instead of compose you’re going to be disappointed. Saving the changes In this screenshot you see how everything got put together to create the body for the last request. If you’re asking how I chose those attributes of all that where returned by the CheckOutPage Method the answer is surprisingly simple. These are the values I need/want Using the developer tools in the browser while saving a Page as draft, I could look at how the SharePoint UI made the requests containing exactly those attributes. (except for the description, which I wanted to have in there) The last step is another HTTP request to the API calling the Method savepageasdraft and delivering the new page content as body: POST _api/sitepages/pages(&amp;lt;ID of the Page&amp;gt;)/savepageasdraft Headers: content-type: application/json;odata=verbose accept: application/json;odata=verbose Body: { &quot;__metadata&quot;: { &quot;type&quot;: &quot;SP.Publishing.SitePage&quot; }, &quot;LayoutWebpartsContent&quot;: &quot;@{variables(&apos;LayoutWebpartsContent&apos;)}&quot;, &quot;CanvasContent1&quot;: &quot;@{outputs(&apos;Compose_-_Replace_Image_URL_in_Canvas_Content&apos;)}&quot;, &quot;AuthorByline&quot;: [ &quot;i:0#.f|membership|username@contoso.com&quot; ], &quot;TopicHeader&quot;: null, &quot;BannerImageUrl&quot;: &quot;@{variables(&apos;BannerImageUrl&apos;)}&quot;, &quot;Description&quot;: &quot;My new description&quot;, &quot;Title&quot;: &quot;@{outputs(&apos;Compose_-_Replace_Department_Name_in_Title&apos;)}&quot; } In this particular case i wanted the user to be able to look at the Post and maybe add some custom Text before publishing it. If you want to publish the page directly from your Flow you can use the publish Method of the API: POST _api/sitepages/pages(&amp;lt;ID of the Page&amp;gt;)/publish</summary></entry></feed>
